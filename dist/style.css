@@ -2,6 +2,13 @@
  .shell{max-width:1320px;margin:auto;padding:34px 42px}.shell header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #e1e9df;padding-bottom:25px}.lede{font-size:18px;max-width:650px}.status,.pill{font-size:11px;letter-spacing:1px;color:#58725d;border:1px solid #d9e6d6;border-radius:99px;padding:8px 12px;white-space:nowrap}.notice{display:flex;gap:18px;align-items:center;background:#edf5e9;border-left:4px solid #315e42;padding:15px 18px;margin:25px 0}.notice span{color:#5d715d}.controls-panel{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;border:1px solid #dfe8dc;border-radius:14px;padding:20px;background:#fbfdf9}.price-context{font-size:12px;color:#71816e;margin-top:8px}.nuance{display:flex;gap:16px;margin:18px 0;padding:13px 16px;background:#fffaf0;border:1px solid #eadfbe;border-radius:10px;color:#6f674d}.dashboard{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{border:1px solid #dfe8dc;border-radius:14px;padding:24px;background:#fff}.primary-card{background:#f8fbf6}.card-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.pill.green{background:#e8f2e5}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 15px}.metric-grid.two{grid-template-columns:repeat(2,1fr)}.metric-grid div{border-top:2px solid #d8e5d2;padding-top:10px}.metric-grid span,.metric-grid small{display:block;color:#71816e;font-size:12px}.metric-grid strong{display:block;font-size:25px;margin:4px 0;color:#214d38}.definition{font-size:12px;color:#71816e}.comparison{margin-top:18px}.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.price-card{text-align:left;padding:18px;border:1px solid #dfe8dc;border-radius:11px;background:#fff}.price-card.recommended{border:2px solid #8ead7d;background:#f7fbf4}.price-card.selected{box-shadow:0 0 0 3px #dbead5}.price-card .price,.price-card .tagline{display:block}.price-card .price{font-size:26px;font-weight:750;color:#214d38}.price-card .tagline{font-size:12px;color:#71816e;margin:3px 0 18px}.price-card div{display:flex;justify-content:space-between;border-top:1px solid #e8eee5;padding:9px 0}.price-card small{color:#71816e}.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.big-number{font-size:34px;font-weight:750;color:#214d38}.big-number small{font-size:13px;font-weight:400;color:#71816e}.flag{padding:12px;background:#fff8e8;color:#75683c;border-radius:8px;font-size:13px}.source,footer{font-size:11px;color:#83917e}.budget-row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #e8eee5}.budget-row strong{color:#214d38}.budget-row.total{font-size:17px;border-bottom:0}.positive{color:#267043!important}.negative{color:#a24e33!important}@media(max-width:900px){.shell{padding:25px 18px}.controls-panel,.dashboard,.bottom-grid{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.shell header,.notice,.nuance{display:block}.status{display:inline-block;margin-top:15px}.controls-panel,.dashboard,.bottom-grid,.compare-grid{grid-template-columns:1fr}.notice span,.nuance span{display:block;margin-top:7px}}
 /* Scenario cockpit layout safeguards */
 .shell{display:block;max-width:1320px;margin:0 auto;padding:34px 42px}
+.shell{padding-top:0}
+.shell header{padding-top:34px}
+.shell header{position:relative;overflow:hidden}.header-art{position:absolute;right:34px;top:22px;width:92px;height:116px;color:rgba(255,255,255,.16);pointer-events:none}.leaf-art{width:30px;height:30px;flex:0 0 30px;color:#8b641f;margin-top:1px}
+.city-map{display:grid;grid-template-columns:1fr 260px;gap:18px;align-items:center;margin:18px 0 20px;background:linear-gradient(135deg,#f5fbf7,#fffdf5);border-color:#c9ded3}.city-map h2{margin:2px 0 4px}.city-map>svg{grid-column:2;grid-row:1/3;width:100%;height:210px}.germany-shape{fill:#e3f0e7;stroke:#94bba4;stroke-width:2}.city-marker circle:first-child{fill:#e6a12b;fill-opacity:.25;stroke:#d28d16;stroke-width:1.5}.city-marker .city-core{fill:#0d5545}.city-marker text{font:700 9px Arial,sans-serif;fill:#31584a}.city-legend{display:flex;flex-wrap:wrap;gap:8px;grid-column:1}.city-legend span{font-size:11px;color:#46675b}.city-legend i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#0d5545;margin-right:4px}@media(max-width:650px){.city-map{display:block}.city-map>svg{display:block;height:190px;margin:8px auto 0;max-width:280px}.city-legend{margin-top:4px}}
+.card.value-updated{animation:value-updated .7s ease-out}
+.metric-grid strong.counting,.big-number.counting,.budget-row strong.counting{color:#d48700!important;text-shadow:0 0 12px rgba(230,161,43,.65)}
+@keyframes value-updated{0%{filter:brightness(1.12);box-shadow:0 0 0 4px rgba(230,161,43,.28),0 16px 34px rgba(8,61,52,.12)}100%{filter:brightness(1);}}
 .controls-panel{display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:18px;align-items:start}
 .controls-panel>div{min-width:0}
 .controls-panel label{white-space:normal}
@@ -12,7 +19,7 @@
 .bottom-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;margin-top:24px}
 .card-head h2{overflow-wrap:anywhere}
 @media(max-width:1100px){.controls-panel{grid-template-columns:repeat(2,minmax(230px,1fr))}}
-@media(max-width:650px){.shell{padding:22px 16px}.controls-panel,.dashboard,.bottom-grid{grid-template-columns:1fr}.controls-panel{gap:14px}}
+@media(max-width:650px){.shell{padding:0 16px 22px}.shell header{padding-top:22px}.controls-panel,.dashboard,.bottom-grid{grid-template-columns:1fr}.controls-panel{gap:14px}}
  .rank{display:block;font-size:11px;font-weight:750;letter-spacing:.5px;text-transform:uppercase;color:#52734f;margin-bottom:10px}.why{font-size:12px;line-height:1.45;color:#5f7059;margin:12px 0 0;min-height:52px}
  .inline-message{padding:15px;background:#fff8e8;border:1px solid #eadfbe;border-radius:8px;color:#75683c;font-size:13px;margin:12px 0}.price-card .why{min-height:52px}
 /* LUMEN brand layer: green tea, sparkling water, and citrus */
@@ -63,24 +70,15 @@ select:focus,input:focus,textarea:focus{border-color:var(--lumen-citrus);box-sha
 .notice{border-left-color:var(--lumen-citrus);box-shadow:0 10px 24px rgba(8,61,52,.1)}
 .inline-message,.flag{border-color:#e5c878;background:#fff8df;color:#6f5210;font-weight:600}
 .shell header .eyebrow{font-size:13px}
-/* Header reaches the viewport edge while retaining its existing internal rhythm. */
-.shell{padding-top:0}
-.shell header{padding-top:34px}
-
-/* Live scenario feedback. */
-.card.is-updating{animation:lumen-card-update .55s ease-out}
-.metric-grid strong,.price-card b,.big-number,.budget-row strong{transition:color .25s ease,filter .25s ease}
-.is-counting{color:var(--lumen-citrus)!important;filter:brightness(.82)}
-@keyframes lumen-card-update{0%{background-color:#fff1bd;box-shadow:0 0 0 4px rgba(230,161,43,.22),0 18px 38px rgba(8,61,52,.16)}100%{background-color:var(--lumen-card);box-shadow:0 16px 34px rgba(8,61,52,.12),0 2px 6px rgba(8,61,52,.05)}}
-@media(prefers-reduced-motion:reduce){.card.is-updating{animation:none}.metric-grid strong,.price-card b,.big-number,.budget-row strong{transition:none}}
-/* Two lightweight inline-SVG brand accents. */
-.shell header{position:relative;isolation:isolate;overflow:hidden}
-.shell header>div{position:relative;z-index:1}
-.header-art{position:absolute;z-index:0;right:220px;top:5px;width:230px;height:145px;color:#f6c65b;opacity:.2;pointer-events:none}
-.header-art .can-body{fill:rgba(255,255,255,.08);stroke-width:2.5}.header-art g{stroke-width:2}.header-art .spark{stroke-width:3}
-.nuance{position:relative;isolation:isolate;overflow:hidden}
-.nuance>strong,.nuance>span{position:relative;z-index:1}
-.leaf-art{position:absolute;z-index:0;right:14px;top:2px;width:105px;height:78px;color:#2d6851;opacity:.16;pointer-events:none}
-.leaf-art g{stroke-width:3}
-@media(max-width:900px){.header-art{right:130px;opacity:.14}}
-@media(max-width:650px){.header-art{right:-25px;width:170px;opacity:.12}.leaf-art{right:-25px;opacity:.1}}
+.state-borders path{fill:none;stroke:#a8c8b3;stroke-width:1;stroke-dasharray:2 2;opacity:.8}
+.map-context rect{fill:#dcebf7}.map-context path{fill:#eef0ef;stroke:#c8cecf;stroke-width:1}.map-context text{font:700 7px Arial,sans-serif;fill:#5e686a;letter-spacing:.3px}.germany-shape{fill:#8fcea3;stroke:#c62828;stroke-width:3}
+.map-context{display:none}.city-map .germany-shape{fill:#e3f0e7;stroke:#94bba4;stroke-width:2}
+.lumen-dark-theme{color-scheme:dark}body{background:#2b2b2b;color:#f5f7f4}.shell{background:#2b2b2b}.notice,.controls-panel,.city-map,.card{background:#363636;border-color:#555f58;color:#f5f7f4}.notice{border-left-color:#39FF14}.notice span,.price-context,.definition,.muted,.source,footer{color:#c8d2cb}.nuance{background:#344434;border-color:#6e9b69;color:#dcebdc}.nuance strong{color:#baffad}.controls-panel input,.controls-panel select,input,select,textarea{background:#292d2a;color:#f5f7f4;border-color:#728276}.controls-panel input:focus,.controls-panel select:focus,input:focus,select:focus,textarea:focus{border-color:#39FF14;box-shadow:0 0 0 4px rgba(57,255,20,.2)}#price{border-color:#39FF14;background:#caffc2;color:#142016}.status,.pill{color:#baffad;border-color:#6e9b69;background:#304a32}.pill.green{background:#caffc2;color:#17331a;border-color:#39FF14}.price-card{background:#303530;border-color:#5e7860;color:#f5f7f4}.price-card:hover{background:#3b4b3b;border-color:#39FF14}.price-card.recommended{border-color:#39FF14;background:#344d35;box-shadow:0 0 0 5px rgba(57,255,20,.16),0 16px 28px rgba(0,0,0,.25)}.price-card.selected{box-shadow:0 0 0 4px rgba(57,255,20,.35),0 12px 26px rgba(0,0,0,.25)}.metric-grid strong,.big-number,.price-card .price{color:#baffad}.metric-grid div{border-top-color:#62816a}.flag,.inline-message{background:#344434;border-color:#6e9b69;color:#dcebdc}.budget-row{border-bottom-color:#526258}.positive{color:#8cff78!important}.negative{color:#ff9d8f!important}.city-map{background:linear-gradient(135deg,#303a32,#383838)}.germany-shape{fill:#435c48;stroke:#39FF14}.city-marker circle:first-child{fill:#39FF14;fill-opacity:.25;stroke:#39FF14}.city-marker .city-core{fill:#baffad}.city-marker text{fill:#e8f6e8}.city-legend span{color:#c8d2cb}.city-legend i{background:#39FF14}.leaf-art{color:#39FF14}.header-art{color:rgba(57,255,20,.35)}
+.shell h1,.shell h2,.shell h3,.shell label,.shell .eyebrow,.shell .card-head,.shell .notice strong,.shell .city-map h2{color:#f5f7f4}.shell .eyebrow{color:#baffad}.shell .notice strong{color:#baffad}.shell .rank{color:#baffad}
+.city-map svg .city-marker text{fill:#2b2b2b!important;color:#2b2b2b!important}
+.shell header .eyebrow,.shell header .status{color:#39FF14}.shell header .status{align-self:flex-start;margin-top:0;border-color:#39FF14;background:rgba(57,255,20,.08)}
+.shell header .header-art{top:auto;bottom:-28px}
+.price-card.recommended:before{background:#baffad;color:#2b2b2b}.price-card.recommended .tagline{color:#2b2b2b}.price-card.recommended .price{color:#2b2b2b}.price-card.recommended{background:#344d35;border-color:#39FF14}
+.city-map .germany-shape{display:none}.actual-map-image{display:block;pointer-events:none}
+.shell header{background:#0b5a24;box-shadow:0 0 0 100vmax #0b5a24}
+.shell header{background:#063d18;box-shadow:0 0 0 100vmax #063d18}
