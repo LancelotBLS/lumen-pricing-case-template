@@ -1,5 +1,11 @@
 # LUMEN — Pricing & Go-to-Market Case — ATELIA × ESCP Starter Kit
 
+## Local pricing simulator
+
+Run `npm start` and open http://127.0.0.1:4173. No dependency installation is needed. See [run instructions and verified calculations](RUN_SIMULATOR.md) and the [simulator brief](SIMULATOR_PROMPT.md). Run `npm test` for the calculation checks.
+
+The simulator keeps €1.79, €2.19 and €2.59 as distinct choices, reports acceptance and contribution by channel, and blends contribution only after the chosen unit shares total 100%. It compares competitors using single 330 ml cans and offers recommendations under an explicit acceptance or contribution priority.
+
 > This repo is your starting point. Codex should read this README first.
 
 ## How to Get Started
@@ -26,14 +32,14 @@ Why we're doing this: it's not to monitor you. It's what lets us understand, at 
 
 Check each box in this README as you go — not at the end, while you're working:
 
-- [ ] **Data**: what data will your tool actually handle? Is any of it sensitive (personal data, company customer data)? `data/customer_survey.csv` has name/email columns — did you use them in your tool? If yes, how did you protect/anonymize them? If no, why did you choose not to expose them? (A team that never touches these columns should still be able to answer — "we chose not to use them" is a valid answer.)
-- [ ] **API keys**: if your tool calls an external API (weather, or anything else), where is the key stored? Never hardcoded in a file committed to GitHub. (A valid answer: "we didn't use any external API.")
-- [ ] **Deployment**: if you deployed a live demo, does any endpoint or response return raw, unfiltered data (e.g. the full survey with name/email) to any visitor?
-- [ ] **Files generated along the way**: if your tool (or Codex) created new files derived from the provided data, did you think about whether they should be committed to the repo or not?
-- [ ] **Storage**: if you're keeping any data, in what structure, and why that choice over another?
-- [ ] **Robustness**: what happens if the user gives an empty, inconsistent, or unexpected input?
-- [ ] **Explainability**: can you explain to someone non-technical why your tool does what it does?
-- [ ] **Business relevance**: does your prototype actually answer the problem posed in the brief, or is it an interesting technical build that's off-target?
+- [x] **Data**: The dashboard uses the provided CSVs, but never loads or exposes the `name` or `email` columns from `customer_survey.csv`; only aggregated segment evidence is used because individual identities are irrelevant to the launch decision.
+- [x] **API keys**: No external API, live weather feed, or API key is used; the dashboard relies only on the provided case data.
+- [x] **Deployment**: The prototype has not been publicly deployed. The local server returns prepared aggregate case data, not the raw customer survey.
+- [x] **Files generated along the way**: `case-data.json` is a derived build artifact containing only the prepared aggregates and decision inputs needed by the dashboard; raw source CSVs remain unchanged.
+- [x] **Storage**: Scenarios are held in browser memory and are not persisted, which keeps customer data out of storage and makes the tool safe to reset between decisions.
+- [x] **Robustness**: Empty, negative, non-numeric, or inconsistent inputs show a short inline message such as “Enter a numeric budget” or “No data for this combination”; valid cards continue working.
+- [x] **Explainability**: The interface separates acceptance, net price, unit contribution, CAC, LTV, and payback proxy, and labels the German volume as an estimate rather than presenting one opaque score.
+- [x] **Business relevance**: The prototype answers Freya's decision: which price belongs in which launch channel, how quickly acquisition spend can recover, and what trade-off the team accepts.
 
 These questions aren't here to slow you down — they're part of what's being evaluated. A thoughtful answer to one of them is worth more than an extra feature nobody asked for.
 
@@ -46,4 +52,6 @@ These questions aren't here to slow you down — they're part of what's being ev
 
 ## Our Approach
 
-*[To be filled in by the team at the end.]*
+We recommend a channel-differentiated German launch: use €2.19 as the anchor for Gym & Office and DTC Online, where it combines 51.7% acceptance with strong contribution of €1.13–€1.16 per can and fast payback against the selected marketing CAC, such as €28.14 for Referral / Subscription. Use €2.59 for Retail/Grocery, where retailer and distributor cuts erode the thinner-margin options and the premium price produces €0.86 contribution per can despite lower 26.7% acceptance. The dashboard keeps €1.79 visible as the maximum-acceptance option at 61.7%, but its €0.40–€0.81 contribution is the slower path to recovering acquisition spend. This prioritizes Elena's CFO goal of faster payback over Jonas's preference for one premium price point across every channel. We are deliberately not optimizing for one consistent brand price or maximum acceptance; we accept a more complex channel story to reach profitability faster. German volume is a clearly labeled estimate built from deduplicated NL/DK/SE history—706 raw rows reduced to 702 unique rows after removing 4 duplicate keys—not real German sales.
+
+Implementation decisions: all customer evidence is aggregated before it reaches the browser; customer names and emails are never loaded. There are no API keys or external services. Source CSVs are unchanged, calculations run in browser memory, and scenarios are not persisted. Missing records and invalid inputs produce visible messages rather than blank or crashed sections. The prototype has not been publicly deployed.
