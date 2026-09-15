@@ -63,3 +63,24 @@ select:focus,input:focus,textarea:focus{border-color:var(--lumen-citrus);box-sha
 .notice{border-left-color:var(--lumen-citrus);box-shadow:0 10px 24px rgba(8,61,52,.1)}
 .inline-message,.flag{border-color:#e5c878;background:#fff8df;color:#6f5210;font-weight:600}
 .shell header .eyebrow{font-size:13px}
+/* Header reaches the viewport edge while retaining its existing internal rhythm. */
+.shell{padding-top:0}
+.shell header{padding-top:34px}
+
+/* Live scenario feedback. */
+.card.is-updating{animation:lumen-card-update .55s ease-out}
+.metric-grid strong,.price-card b,.big-number,.budget-row strong{transition:color .25s ease,filter .25s ease}
+.is-counting{color:var(--lumen-citrus)!important;filter:brightness(.82)}
+@keyframes lumen-card-update{0%{background-color:#fff1bd;box-shadow:0 0 0 4px rgba(230,161,43,.22),0 18px 38px rgba(8,61,52,.16)}100%{background-color:var(--lumen-card);box-shadow:0 16px 34px rgba(8,61,52,.12),0 2px 6px rgba(8,61,52,.05)}}
+@media(prefers-reduced-motion:reduce){.card.is-updating{animation:none}.metric-grid strong,.price-card b,.big-number,.budget-row strong{transition:none}}
+/* Two lightweight inline-SVG brand accents. */
+.shell header{position:relative;isolation:isolate;overflow:hidden}
+.shell header>div{position:relative;z-index:1}
+.header-art{position:absolute;z-index:0;right:220px;top:5px;width:230px;height:145px;color:#f6c65b;opacity:.2;pointer-events:none}
+.header-art .can-body{fill:rgba(255,255,255,.08);stroke-width:2.5}.header-art g{stroke-width:2}.header-art .spark{stroke-width:3}
+.nuance{position:relative;isolation:isolate;overflow:hidden}
+.nuance>strong,.nuance>span{position:relative;z-index:1}
+.leaf-art{position:absolute;z-index:0;right:14px;top:2px;width:105px;height:78px;color:#2d6851;opacity:.16;pointer-events:none}
+.leaf-art g{stroke-width:3}
+@media(max-width:900px){.header-art{right:130px;opacity:.14}}
+@media(max-width:650px){.header-art{right:-25px;width:170px;opacity:.12}.leaf-art{right:-25px;opacity:.1}}
