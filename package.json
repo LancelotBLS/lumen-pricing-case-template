@@ -1,1 +1,1 @@
-{"name":"lumen-pricing-simulator","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/model.test.mjs"}}
+{"name":"lumen-launch-strategy","private":true,"type":"module","scripts":{"build":"node build.mjs","start":"node server.mjs","test":"node --test tests/*.test.mjs","package:preview":"node build.mjs && node package-preview.mjs"}}
